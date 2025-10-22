@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  restart-qbittorrent:
+  restart-qbittorrent-amule:
     image: itaiber2000/restart-qbittorent-amule:latest
     container_name: restart-qbittorent-amule
     restart: unless-stopped
