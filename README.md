@@ -1,4 +1,4 @@
-# Restart qBitTorrent
+# Restart qBitTorrent and aMule
 qbittorrent docker container looses connection after gluetun's "self-healing" reconnects.
 This script solves this problem, by restarting the qbittorent container when that happens
 
@@ -12,6 +12,8 @@ Context:
 None of the solutions worked well for me. 
 Health-based restarts on qbitorrent don't work - qbittorrent regains the internet connectivity, but seeding and downloading still doesn't work.
 Instead of relying on the health check, this script listens to Gluetun's Logs, and restarts qbittorrent container after Gluetun successfuly restarts itself.
+
+Orgianl sciript created by JakubKopys i only added amule docker as well.
 
 ## How to use it
 
