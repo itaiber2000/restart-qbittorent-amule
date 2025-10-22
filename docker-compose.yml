@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   restart-qbittorrent:
-    image: jakub95/restart-qbittorrent:latest
-    container_name: restart-qbittorrent
+    image: itaiber2000/restart-qbittorent-amule:latest
+    container_name: restart-qbittorent-amule
     restart: unless-stopped
     network_mode: none # it doesn't need internet connectivity, it's more secure this way
     environment:
-      - TZ=Europe/London
+      - TZ=Asia/Jerusalem
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     # normally, you'd have gluetun and qibtorrent services here too
@@ -15,4 +15,6 @@ services:
     #   gluetun:
     #     condition: service_healthy
     #   qbittorrent:
+    #     condition: service_started
+    #   amule:
     #     condition: service_started
