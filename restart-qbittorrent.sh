@@ -35,6 +35,14 @@ while true; do
           else
               log_message "Failed to restart qbittorrent container."
           fi
+
+          log_message "Detected 'ip getter' event. Restarting amule container..."
+
+          if docker restart amule -t 120; then
+              log_message "amule container restarted successfully."
+          else
+              log_message "Failed to restart amule container."
+          fi
       fi
   done
   if [ $? -ne 0 ]; then
