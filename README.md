@@ -13,7 +13,7 @@ None of the solutions worked well for me.
 Health-based restarts on qbitorrent don't work - qbittorrent regains the internet connectivity, but seeding and downloading still doesn't work.
 Instead of relying on the health check, this script listens to Gluetun's Logs, and restarts qbittorrent container after Gluetun successfuly restarts itself.
 
-Orgianl sciript created by JakubKopys i only added amule docker as well.
+Orgianl sciript created by JakubKopys i only added amule and jdownloader2 docker as well.
 
 ## How to use it
 
