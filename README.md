@@ -1,4 +1,4 @@
-# Restart qBitTorrent and aMule
+# Restart qBitTorrent / aMule / jDownloader2
 qbittorrent docker container looses connection after gluetun's "self-healing" reconnects.
 This script solves this problem, by restarting the qbittorent container when that happens
 
