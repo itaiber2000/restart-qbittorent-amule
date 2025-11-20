@@ -1,4 +1,4 @@
-FROM alpine:latest
+basFROM alpine:latest
 
 RUN apk add --no-cache docker-cli bash
 
@@ -12,7 +12,7 @@ ARG CREATED="an unknown date"
 ENV TZ=Asia/Jerusalem
 
 LABEL \
-    org.opencontainers.image.authors="jakubkopys95@gmail.com" \
+    org.opencontainers.image.authors="me based on JakubKopys" \
     org.opencontainers.image.version=$VERSION \
     org.opencontainers.image.created=$CREATED \
     org.opencontainers.image.revision=$COMMIT \
