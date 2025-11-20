@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   restart-qbittorrent-amule:
-    image: itaiber2000/restart-qbittorent-amule:latest
-    container_name: restart-qbittorent-amule
+    image: itaiber2000/restart-qbittorent-amule:1.2.0
+    container_name: restart-p2p-containers
     restart: unless-stopped
     network_mode: none # it doesn't need internet connectivity, it's more secure this way
     environment:
