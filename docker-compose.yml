@@ -18,3 +18,5 @@ services:
     #     condition: service_started
     #   amule:
     #     condition: service_started
+    #   jdwonloader-2:
+    #     condition: service_started
