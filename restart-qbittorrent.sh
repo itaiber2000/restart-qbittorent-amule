@@ -43,6 +43,14 @@ while true; do
           else
               log_message "Failed to restart amule container."
           fi
+
+          log_message "Detected 'ip getter' event. Restarting jDownloader2 container..."
+
+          if docker restart jdownloader-2 -t 120; then
+              log_message "jDownloader2 container restarted successfully."
+          else
+              log_message "Failed to restart jDownloader2 container."
+          fi
       fi
   done
   if [ $? -ne 0 ]; then
