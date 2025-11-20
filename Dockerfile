@@ -20,6 +20,6 @@ LABEL \
     org.opencontainers.image.documentation="https://github.com/itaiber2000/restart-qbittorent-amule/blob/main/README.md" \
     org.opencontainers.image.source="https://github.com/itaiber2000/restart-qbittorent-amule" \
     org.opencontainers.image.title="restart-qbittorent-amule" \
-    org.opencontainers.image.description="Restart qBittorrent and aMule after Gluetun VPN reconnect"
+    org.opencontainers.image.description="Restart qBittorrent / aMule / jDownloader2 after Gluetun VPN reconnect"
 
 CMD ["/usr/local/bin/restart-qbittorrent.sh"]
