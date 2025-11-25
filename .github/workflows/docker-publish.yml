@@ -1,23 +1,11 @@
-runs-on: ubuntu-latest
-permissions:
-  contents: read
-  packages: write
-  # This is used to complete the identity challenge
-  # with sigstore/fulcio when running outside of PRs.
-  id-token: write
-
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
 
-  # --- START: Multi-Arch Changes ---
-
-  # 1. Setup QEMU for ARM64 Emulation
+  # 1. Setup QEMU for ARM64 Emulation (Multi-Arch Step 1)
   - name: Set up QEMU
     uses: docker/setup-qemu-action@v3
     # QEMU allows the AMD64 runner to build images for ARM64.
-
-  # --- END: Multi-Arch Changes ---
   
   # Install the cosign tool except on PR
   # https://github.com/sigstore/cosign-installer
@@ -27,8 +15,7 @@ steps:
     with:
       cosign-release: 'v2.2.4'
 
-  # Set up BuildKit Docker container builder to be able to build
-  # multi-platform images and export cache
+  # Set up BuildKit Docker container builder
   # https://github.com/docker/setup-buildx-action
   - name: Set up Docker Buildx
     uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3.0.0
@@ -59,7 +46,7 @@ steps:
     with:
       context: .
       push: ${{ github.event_name != 'pull_request' }}
-      # 2. Add the platforms key to build for both AMD64 and ARM64
+      # 2. Add the platforms key to build for both AMD64 and ARM64 (Multi-Arch Step 2)
       platforms: linux/amd64,linux/arm64
       tags: ${{ steps.meta.outputs.tags }}
       labels: ${{ steps.meta.outputs.labels }}
@@ -67,9 +54,6 @@ steps:
       cache-to: type=gha,mode=max
 
   # Sign the resulting Docker image digest except on PRs.
-  # This will only write to the public Rekor transparency log when the Docker
-  # repository is public to avoid leaking data. If you would like to publish
-  # transparency data even for private images, pass --force to cosign below.
   # https://github.com/sigstore/cosign
   - name: Sign the published Docker image
     if: ${{ github.event_name != 'pull_request' }}
