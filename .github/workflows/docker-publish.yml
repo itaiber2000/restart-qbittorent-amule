@@ -1,5 +1,5 @@
-steps:
-  - name: Checkout repository
+steps: # <-- Indented 2 spaces under build:
+  - name: Checkout repository # <-- Indented 4 spaces, dash means list item
     uses: actions/checkout@v4
 
   # 1. Setup QEMU for ARM64 Emulation (Multi-Arch Step 1)
