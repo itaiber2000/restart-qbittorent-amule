@@ -1,5 +1,9 @@
 name: Docker Publish
 
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: itaiber2000/restart-qbittorent-amule
+  
 on:
   push:
     branches: [ "main" ]
